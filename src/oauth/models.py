@@ -25,4 +25,10 @@ class AuthUser(models.Model):
         return self.email
 
 
+class Follower(models.Model):
+    """модель подписчиков"""
+    user = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name='owner')
+    subscriber = models.ForeignKey(AuthUser, on_delete=models.CASCADE, related_name='subscribers')
 
+    def __str__(self):
+        return f'{self.subscriber} подписан на {self.user}'
