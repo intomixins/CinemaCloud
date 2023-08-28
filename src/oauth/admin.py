@@ -11,3 +11,5 @@ class AuthUserAdmin(admin.ModelAdmin):
 @admin.register(SocialLink)
 class SocialLinkAdmin(admin.ModelAdmin):
     list_display = ('user', 'link')
+
+
