@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GoogleTitle</title>
+    <title>Django Google Sign In</title>
     <meta name="google-signin-client-id"
           content="221049037050-7gbpfh2cc76n161c7lcdbhqbt44cnd30.apps.googleusercontent.com">
 </head>
 <body>
-<div id="my-signin"></div>
-<h1>{% user_display user %}</h1>
+    {% load socialaccount %}
+    <h2>Google login</h2>
+    <a href="{% provider_login_url 'google' %}?next=/">Login with Google</a>
+
 <script>
 
     function onSuccess(googleUser) {
@@ -44,8 +46,8 @@
             'onfailure': onFailure
         });
     }
-
 </script>
+
 
 <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
